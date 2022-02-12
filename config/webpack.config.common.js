@@ -1,12 +1,15 @@
-/** @author henanjie
- *  开发环境和生产环境通用配置
- *  update-time:2022-2-8 8:00
+/*
+ * @Description: **博客通用配置**
+ * @Author: heshuaishuai
+ * @Date: 2022-1-19 17:00:00
+ * @LastEditTime: 2022-2-12 15:00:00
  */
 
 
 const {resolve} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CracoLessPlugin = require('craco-less');
 const webpack = require('webpack');
 
 module.exports = {
@@ -81,6 +84,6 @@ module.exports = {
         }),
         new ForkTsCheckerWebpackPlugin({
             async: false
-        }),
+        })
     ]
 }
