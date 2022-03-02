@@ -1,0 +1,78 @@
+.home-page {
+  overflow: auto;
+  height: 100vh;
+  .header {
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    // background-image: url(https://cdn.chenyingshuang.cn/index/bg1.jpg);
+  }
+  .container {
+    padding: 30px 24px;
+    display: flex;
+    background-color: #d7d7d7;
+    .left-container {
+      width: calc(75% - 15px);
+    }
+    .right-container {
+      margin-left: 15px;
+      width: 25%;
+
+      .message-warp {
+        padding: 16px 20px;
+        border-radius: 8px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .avatar {
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+          background-color: yellow;
+        }
+        .name-warp {
+          line-height: 1.7;
+          font-weight: bold;
+        }
+
+        .label-and-artile-warp {
+          display: flex;
+          width: 100%;
+          & > div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            & > p:nth-child(2) {
+              font-weight: bold;
+            }
+          }
+        }
+
+        .add-button {
+          width: 100%;
+        }
+        .finde-warp {
+        }
+      }
+      .life-carousel-warp {
+        height: 300px;
+        margin-top: 20px;
+        position: relative;
+        .img-box {
+          width: 288px;
+          background: rgb(190, 190, 134);
+          height: 300px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.navigator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+
+  // gloabl css-module将不解析成hash
+
+  :global .ant-menu {
+    background: rgba(0, 0, 0, 0);
+    &.ant-menu-horizontal {
+      border: none;
+    }
+  }
+  .ant-menu-horizontal {
+    border: none;
+  }
+
+  .left-container {
+    flex: 1;
+  }
+
+  .right-container {
+    width: 426px;
+  }
+}

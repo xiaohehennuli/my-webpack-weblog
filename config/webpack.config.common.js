@@ -57,6 +57,12 @@ module.exports = {
                     }
                 }         
             },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ['@svgr/webpack'],
+            },
+              
             // 资源模块
             {
                 test:/\.(png|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
@@ -65,6 +71,7 @@ module.exports = {
                     filename: 'static/[hash][ext][query]'
                 },
             },
+            
         ]
     },
     //解析相关配置：
