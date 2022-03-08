@@ -1,0 +1,48 @@
+{
+  "menuData": [
+    {
+      "name": "日记",
+      "key": "note",
+      "children": [
+        {
+          "name": "2022.3.20",
+          "key": "note-2022-3-20",
+          "type": "note",
+          "link": "/life/note1"
+        }
+      ]
+    },
+    {
+      "name": "游戏",
+      "key": "game",
+      "children": [
+        {
+          "name": "极速地平线5",
+          "key": "Forza Horizon 5",
+          "type": "game",
+          "link": "/life/game1"
+        },
+        {
+          "name": "英雄联盟",
+          "key": "lol",
+          "type": "game",
+          "link": "/life/game1"
+        },
+        {
+          "name": "绝地求生",
+          "key": "pubg",
+          "type": "game",
+          "link": "/life/game1"
+        }
+      ]
+    },
+    {
+      "name": "动漫",
+      "key": "anime",
+      "type": "anime",
+      "link": "/life/anime1",
+      "children": []
+    }
+  ],
+  "total": 21
+}

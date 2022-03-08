@@ -15,9 +15,7 @@ import "antd/dist/antd.less"
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <Routers />
-    </React.StrictMode>
+    <Routers />
   </Provider>,
   document.getElementById("root")
 )

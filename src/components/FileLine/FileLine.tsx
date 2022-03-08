@@ -18,7 +18,6 @@ const FileLine = () => {
   const [pageSize, setPageSize] = useState<number>(8)
 
   const pageChage = (pageNumber: number) => {
-    console.log("pageNumber", pageNumber)
     setPageNumber(pageNumber)
   }
 

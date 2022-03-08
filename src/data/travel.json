@@ -1,0 +1,33 @@
+{
+  "menuData": [
+    {
+      "name": "总览",
+      "key": "anime",
+      "link": "/travel",
+      "children": []
+    },
+    {
+      "name": "国外",
+      "key": "abroad",
+      "children": [
+        {
+          "name": "泰国",
+          "key": "taiguo",
+          "link": "/travel/taiguo"
+        }
+      ]
+    },
+    {
+      "name": "国内",
+      "key": "domestic",
+      "children": [
+        {
+          "name": "大理",
+          "key": "Dali",
+          "link": "/travel/dali"
+        }
+      ]
+    }
+  ],
+  "total": 21
+}
