@@ -6,7 +6,7 @@
  */
 
 import FileLine from "../components/FileLine/FileLine"
-import style from "../less/filepage.less"
+import style from "../less/filePage.less"
 import People from "../assets/people.svg"
 import store from "../redux/store"
 

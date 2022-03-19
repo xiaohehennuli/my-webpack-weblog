@@ -6,6 +6,8 @@
  */
 
 import { Tag, Spin } from "antd"
+import React, { useRef } from "react"
+import { useEffect } from "react"
 import style from "./Article.less"
 
 export type ArticleType =
@@ -27,6 +29,7 @@ export interface ArticleItem {
   time: string
   // 文章链接
   link: string
+  // 是否更新文章组件使用useMemo实现
 }
 
 interface ArticleProps {

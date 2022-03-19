@@ -5,14 +5,14 @@
  * @LastEditTime: 2022-2-12 15:00:00
  */
 import BolgMenu, { MenuItem } from "../components/Menu/Menu"
-import style from "../less/lifepage.less"
+import style from "../less/travelPage.less"
 import { Outlet } from "react-router-dom"
 
 const TRAVEL_MENU_ITEM: MenuItem[] = require("../data/travel.json").menuData
 
 const TravelPage = () => {
   return (
-    <div className={style["life-wrap"]}>
+    <div className={style["travel-wrap"]}>
       <section className={style["menu-wrap"]}>
         <BolgMenu menuData={TRAVEL_MENU_ITEM}></BolgMenu>
       </section>

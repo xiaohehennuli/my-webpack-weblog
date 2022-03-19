@@ -9,6 +9,9 @@ import FilePage from "../views/FilePage"
 import TravelPage from "../views/TravelPage"
 import DaliPage from "../views/TravelPlaceName/Dali"
 import TaiguoPage from "../views/TravelPlaceName/Taiguo"
+import PromiseNote from "../views/Note/PromiseNote"
+import CssShadow from "../views/Note/CssShadow"
+import ReactHook from "../views/Note/ReactHook"
 
 export interface RouterData {
   path?: string
@@ -33,7 +36,7 @@ const routes: RouterData[] = [
     path: "/life",
     component: <LifePage />,
     children: [
-      //这里面是/News的二级路由
+      //这里面是life的二级路由
       {
         path: "/life/anime1",
         component: <LifeAnime1 />,
@@ -55,6 +58,25 @@ const routes: RouterData[] = [
   {
     path: "/note",
     component: <NotePage />,
+    children: [
+      //这里面是/note的二级路由
+      {
+        path: "/note/js/promise",
+        component: <PromiseNote />,
+      },
+      {
+        path: "/note/css/shadow",
+        component: <CssShadow />,
+      },
+      {
+        path: "/note/react/hook",
+        component: <ReactHook />,
+      },
+      {
+        path: "*",
+        component: <NotFound />,
+      },
+    ],
   },
   {
     path: "/travel",

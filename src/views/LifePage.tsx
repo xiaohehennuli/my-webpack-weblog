@@ -6,7 +6,7 @@
  */
 
 import BolgMenu, { MenuItem } from "../components/Menu/Menu"
-import style from "../less/lifepage.less"
+import style from "../less/lifePage.less"
 import { Outlet } from "react-router-dom"
 
 const LIFE_MENU_ITEM: MenuItem[] = require("../data/lifeMenu.json").menuData

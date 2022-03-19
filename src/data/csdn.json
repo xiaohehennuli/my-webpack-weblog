@@ -1,0 +1,38 @@
+{
+  "menuData": [
+    {
+      "name": "JavaScript",
+      "key": "js",
+      "children": [
+        {
+          "name": "Promise同步执行",
+          "key": "promise同步",
+          "link": "/note/js/promise"
+        }
+      ]
+    },
+    {
+      "name": "CSS",
+      "key": "css",
+      "children": [
+        {
+          "name": "css好玩的投影",
+          "key": "shadow",
+          "link": "/note/css/shadow"
+        }
+      ]
+    },
+    {
+      "name": "React",
+      "key": "react",
+      "children": [
+        {
+          "name": "React中常用的hook",
+          "key": "shadow",
+          "link": "/note/react/hook"
+        }
+      ]
+    }
+  ],
+  "total": 21
+}

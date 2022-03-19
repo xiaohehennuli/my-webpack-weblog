@@ -5,10 +5,11 @@
  * @LastEditTime: 2022-2-12 15:00:00
  */
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
 import { Button, Carousel } from "antd"
 import ArticleList, { ArticleItem } from "../components/Article/Article"
-import style from "../less/homepage.less"
+import style from "../less/homePage.less"
+import { utils } from "../base/utils"
 
 const HomePage = () => {
   const [articleList, setArticleList] = useState<ArticleItem[]>([])
@@ -23,7 +24,18 @@ const HomePage = () => {
 
   const [total, setTotal] = useState(1)
 
+  const [headerChageFlag, setHeaderChageFlag] = useState(false)
+
   const scrollEl = useRef<HTMLDivElement>(null)
+
+  // 用useMemo包一层，防止子组件重复渲染
+  const memoArticleList = useMemo(() => {
+    return articleList
+  }, [articleList])
+
+  const memoLoading = useMemo(() => {
+    return loading
+  }, [loading])
 
   const MineMessageWarp = () => {
     return (
@@ -80,11 +92,24 @@ const HomePage = () => {
     return { articleList: _subData, total: data.total as number, hasNext }
   }
 
-  const loadMore = (e: any) => {
+  const loadMore = utils.debounce((e: any) => {
     const { clientHeight, scrollTop, scrollHeight } = e.target
     if (scrollHeight - scrollTop <= clientHeight && !loading && hasNext) {
       setPageNumber(pageNumber + 1)
     }
+  })
+
+  const headerChangeBg = (e: any) => {
+    const { scrollTop } = e.target
+    const headerMenu = document.getElementById("header-menu")
+    if (!headerChageFlag && scrollTop > 150 && headerMenu) {
+      setHeaderChageFlag(true)
+      headerMenu.style.setProperty("backGround", "white")
+    }
+    if (!headerChageFlag && scrollTop < 150 && headerMenu) {
+      headerMenu.style.removeProperty("backGround")
+    }
+    console.log(scrollTop)
   }
   // 获取数据list
   /*
@@ -107,17 +132,31 @@ const HomePage = () => {
   }, [loading, pageNumber])
 
   // 监听滚动事件
+
   // 这里用到了loading，
   useEffect(() => {
     const scrollDiv = scrollEl.current
     if (scrollDiv) {
       scrollDiv.addEventListener("scroll", loadMore)
       return () => {
-        console.log("清除监听事件")
+        console.log("清除加载更多监听事件")
         scrollDiv.removeEventListener("scroll", loadMore)
       }
     }
   }, [pageNumber])
+
+  // 监听滚动条滑动，顶部header变色的逻辑，
+  useEffect(() => {
+    const scrollDiv = scrollEl.current
+    if (scrollDiv) {
+      const { scrollTop } = scrollDiv
+      scrollDiv.addEventListener("scroll", headerChangeBg)
+      return () => {
+        console.log("清除顶部header监听事件")
+        scrollDiv.removeEventListener("scroll", headerChangeBg)
+      }
+    }
+  }, [])
 
   return (
     <div className={style["home-page"]} ref={scrollEl}>
@@ -125,8 +164,8 @@ const HomePage = () => {
       <section className={style["container"]}>
         <div className={style["left-container"]}>
           <ArticleList
-            articleData={articleList}
-            loading={loading}
+            articleData={memoArticleList}
+            loading={memoLoading}
           ></ArticleList>
         </div>
         <div className={style["right-container"]}>

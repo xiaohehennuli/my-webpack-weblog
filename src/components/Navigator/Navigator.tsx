@@ -65,7 +65,7 @@ const MenuList = () => {
 
 const Navigator = () => {
   return (
-    <header className={style["navigator"]}>
+    <header className={style["navigator"]} id="header-menu">
       <div className={style["left-container"]}>heshuaishuai</div>
       <div className={style["right-container"]}>
         <MenuList></MenuList>
