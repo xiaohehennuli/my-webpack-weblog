@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-2-12 15:00:00
  */
 
-import { HashRouter, Route, Routes, Navigate } from "react-router-dom"
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 import { Suspense } from "react"
 
 import router, { RouterData } from "./router"
@@ -31,12 +31,12 @@ const Router = () => {
     )
   return (
     // 暂时用hash模式，否则二级路由页面刷新会有问题
-    <HashRouter>
+    <BrowserRouter>
       <Navigator></Navigator>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>{mapRouter(router)}</Routes>
       </Suspense>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

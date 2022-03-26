@@ -66,7 +66,7 @@ const MenuList = () => {
 const Navigator = () => {
   return (
     <header className={style["navigator"]} id="header-menu">
-      <div className={style["left-container"]}>heshuaishuai</div>
+      <div className={style["left-container"]}>{/* 放些logo之内的 */}</div>
       <div className={style["right-container"]}>
         <MenuList></MenuList>
       </div>

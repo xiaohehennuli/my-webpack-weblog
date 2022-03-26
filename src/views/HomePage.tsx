@@ -109,7 +109,6 @@ const HomePage = () => {
     if (!headerChageFlag && scrollTop < 150 && headerMenu) {
       headerMenu.style.removeProperty("backGround")
     }
-    console.log(scrollTop)
   }
   // 获取数据list
   /*
@@ -139,7 +138,6 @@ const HomePage = () => {
     if (scrollDiv) {
       scrollDiv.addEventListener("scroll", loadMore)
       return () => {
-        console.log("清除加载更多监听事件")
         scrollDiv.removeEventListener("scroll", loadMore)
       }
     }

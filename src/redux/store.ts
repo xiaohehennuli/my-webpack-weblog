@@ -1,14 +1,15 @@
 /*
  ** src/redux/store.ts
  */
- import { createStore, compose, applyMiddleware } from "redux";
+ import { createStore, applyMiddleware } from "redux";
+ import { composeWithDevTools } from 'redux-devtools-extension'
  //引入可视化工具
 
  import thunk from "redux-thunk";
  
  import rootReducer from "../redux/reducer/index";
  
- const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined));
+ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
  export default store;
  
