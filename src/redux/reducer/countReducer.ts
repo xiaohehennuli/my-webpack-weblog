@@ -9,8 +9,10 @@
    text:string
  }
 
+ const initConut:number = 0
 
-const fileReducer = (count = 0,action:Action) => {
+
+const fileReducer = (count = initConut,action:Action) => {
   switch (action.type) {
     case "add":
       return count + 1

@@ -38,30 +38,23 @@ const FileLine = () => {
     setTotal(total)
   }, [])
 
-  const TimeList = ({ listData }: { listData: ArticleItem[] }) => {
-    const li = listData.map((item) => {
-      return (
-        <Timeline.Item key={item.title}>
-          <div className={style["line-wrap"]}>
-            <a href={item.link} target="_blank">
-              {item.title}
-            </a>
-            <span>{item.time}</span>
-          </div>
-        </Timeline.Item>
-      )
-    })
-    return (
-      <Timeline>
-        <Timeline.Item>共计{total}篇文章</Timeline.Item>
-        {li}
-      </Timeline>
-    )
-  }
-
   return (
     <div className={style["file-line-wrap"]}>
-      <TimeList listData={fileData}></TimeList>
+      <Timeline>
+        <Timeline.Item>共计{total}篇文章</Timeline.Item>
+        {fileData.map((item) => {
+          return (
+            <Timeline.Item key={item.title}>
+              <div className={style["line-wrap"]}>
+                <a href={item.link} target="_blank">
+                  {item.title}
+                </a>
+                <span>{item.time}</span>
+              </div>
+            </Timeline.Item>
+          )
+        })}
+      </Timeline>
       <Pagination
         size="small"
         current={pageNumber}

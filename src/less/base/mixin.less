@@ -1,0 +1,436 @@
+.transition(@attr; @time: 0.2s; @easing: ease; @delay: 0s) {
+  transition+: @attr @time @easing @delay;
+}
+.clearfix {
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+.filter(@attr) {
+  filter+_: @attr;
+}
+.common-page-header(@text-color: white) {
+  .flex-center;
+  height: 83px;
+  .text {
+    color: @text-color;
+    font-size: 18px;
+  }
+}
+.absolute(@all: 0) {
+  position: absolute;
+  top: @all;
+  right: @all;
+  bottom: @all;
+  left: @all;
+}
+.absolute(@top;
+  @right;
+  @bottom;
+  @left) {
+  position: absolute;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+.absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.absolute-right(@right: 0) {
+  .absolute(0, @right, 0, auto);
+}
+.absolute-left(@left: 0) {
+  .absolute(0, auto, 0, @left);
+}
+.absolute-top(@top: 0) {
+  .absolute(@top, 0, auto, 0);
+}
+.absolute-bottom(@bottom: 0) {
+  .absolute(auto, 0, @bottom, 0);
+}
+.padding-tb(@all) {
+  .padding-tb(@all, @all);
+}
+.padding-tb(@top, @bottom) {
+  padding-top: @top;
+  padding-bottom: @bottom;
+}
+.padding-lr(@all) {
+  .padding-lr(@all, @all);
+}
+.padding-lr(@left, @right) {
+  padding-left: @left;
+  padding-right: @right;
+}
+.fixed(@top: 0; @right: 0; @bottom: 0; @left: 0) {
+  position: fixed;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+.size(@size) {
+  width: @size;
+  height: @size;
+}
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.t-ellipses() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+.t-m-ellipses(@line) {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+.bg-centered(@img) {
+  background: @img no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.h-lh(@height) {
+  height: @height;
+  line-height: @height;
+}
+.circle(@size) {
+  width: @size;
+  height: @size;
+  border-radius: @size / 2;
+}
+.row-flex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .col-flex {
+    flex: 1;
+  }
+  .col {
+    display: block;
+  }
+}
+.col-flex() {
+  display: flex;
+  flex-direction: column;
+  .row-flex {
+    flex: 1;
+  }
+  .row {
+    display: block;
+  }
+}
+.flex-center(@direction:"row") {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: @direction;
+}
+.flex-center-v() {
+  display: flex;
+  align-items: center;
+}
+//btn colors
+.btn-main-green() {
+  color: white;
+  background: @color-main-green;
+  &:hover {
+    border-color: @color-main-green-hover;
+    background: @color-main-green-hover;
+    color: white;
+  }
+  &:active {
+    border-color: @color-main-green-active;
+    background: @color-main-green-active;
+    color: white;
+  }
+}
+.btn-main-green-dark-hover() {
+  color: white;
+  background: @color-main-green;
+  &:hover {
+    border-color: @color-main-green-hover-dark;
+    background: @color-main-green-hover-dark;
+    color: white;
+  }
+  &:active {
+    border-color: @color-main-green-active;
+    background: @color-main-green-active;
+    color: white;
+  }
+}
+.btn-main-green-lighter() {
+  color: white;
+  background: #3ed777;
+  &:hover {
+    border-color: #46dd7e;
+    background: #46dd7e;
+    color: white;
+  }
+  &:active {
+    border-color: #3db775;
+    background: #3db775;
+    color: white;
+  }
+}
+.btn-white(@c-text: @color-text-black, @c-border: @color-border) {
+  color: @c-text;
+  border: 1px solid @c-border;
+  background: white;
+  &:hover {
+    background: @color-hover;
+  }
+  &:active {
+    background: fade(@color-hover, 90%);
+  }
+}
+.btn-stroke(@c, @c-active) {
+  color: @c;
+  background: transparent;
+  border: 1px solid @c;
+  &:hover {
+    color: white;
+    background: @c;
+  }
+  &:active {
+    color: white;
+    background: @c-active;
+    border: 1px solid @c-active;
+  }
+}
+.btn-main-green-stroke() {
+  .btn-stroke(@color-main-green, @color-main-green-active);
+}
+.btn-white-stroke(@color-bg: #222) {
+  color: white;
+  background: transparent;
+  border: 1px solid white;
+  &:hover {
+    color: @color-bg;
+    background: white;
+  }
+  &:active {
+    color: @color-bg;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid white;
+  }
+}
+.btn-a() {
+  text-decoration: none !important;
+  display: inline-block;
+  outline: none;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+.btn-a(@width;
+  @height) {
+  .btn-a;
+  .h-lh(@height);
+  width: @width;
+}
+// 滚动条的样式
+.pretty-scroll-bar(@width: 6px, @height: 6px, @background: #eeeeee) {
+  &::-webkit-scrollbar {
+    width: @width;
+    height: @height;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: @background;
+    cursor: pointer;
+    &:hover {
+      background: #bebebe;
+    }
+    &:active {
+      background: #b0b0b0;
+    }
+  }
+}
+//color filters
+.colorfilter-white() {
+  filter: brightness(10);
+}
+.colorfilter-black() {
+  filter: brightness(0);
+}
+.colorfilter-darker(@d: 0.2) {
+  filter: brightness(1-@d);
+}
+.colorfilter-grayscale() {
+  filter: grayscale();
+}
+.colorfilter-none() {
+  filter: none;
+}
+//pseudo arrows
+.pseudo-arrow(@size: 10px; ) {
+  box-sizing: content-box;
+  content: "";
+  display: inline-block;
+  .size(0);
+  border: @size solid transparent;
+}
+.pseudo-arrow-up(@size: 10px; @color: white) {
+  .pseudo-arrow(@size);
+  border-bottom-color: @color;
+}
+.pseudo-arrow-down(@size: 10px; @color: white) {
+  .pseudo-arrow(@size);
+  border-top-color: @color;
+}
+.pseudo-arrow-left(@size: 10px; @color: white) {
+  .pseudo-arrow(@size);
+  border-right-color: @color;
+}
+.pseudo-arrow-right(@size: 10px; @color: white) {
+  .pseudo-arrow(@size);
+  border-left-color: @color;
+}
+//pseudo borders
+.pseudo-border-h(@color; @padding: 5px; @size: 1px) {
+  content: "";
+  display: block;
+  height: @size;
+  background: @color;
+  .absolute(auto, @padding, auto, @padding);
+}
+.pseudo-border-h(@color; @paddingTop: 5px; @paddingRight: 5px; @paddingBottom: 5px; @paddingLeft: 5px; @size: 1px) {
+  content: "";
+  display: block;
+  height: @size;
+  background: @color;
+  .absolute(@paddingTop, @paddingRight, @paddingBottom, @paddingLeft);
+}
+.pseudo-border-v(@color; @padding: 5px; @size: 1px) {
+  content: "";
+  display: block;
+  width: @size;
+  background: @color;
+  .absolute(@padding, auto, @padding, auto);
+}
+.pseudo-border-top(@color; @padding: 5px; @size: 1px) {
+  .pseudo-border-h(@color, @padding, @size);
+  top: 0;
+}
+.pseudo-border-bottom(@color; @padding: 5px; @size: 1px) {
+  .pseudo-border-h(@color, @padding, @size);
+  bottom: 0;
+}
+.pseudo-border-bottom(@color; @paddingLeft: 5px; @paddingRight: 5px; @size: 1px) {
+  .pseudo-border-h(@color, 0, @paddingRight, 0, @paddingLeft, @size);
+  bottom: 0;
+}
+.pseudo-border-left(@color; @padding: 5px; @size: 1px) {
+  .pseudo-border-v(@color, @padding, @size);
+  left: 0;
+}
+.pseudo-border-right(@color; @padding: 5px; @size: 1px) {
+  .pseudo-border-v(@color, @padding, @size);
+  right: 0;
+}
+// placeholder 的颜⾊修改
+.placeholder-color(@color) {
+  input::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+.placeholder-focus-color(@color) {
+  input:focus::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+.clear-default-btn-style() {
+  border-radius: 0;
+  display: inline-block;
+  padding: 0 40 * @rpx;
+  margin: 0;
+  font-size: 28 * @rpx;
+  background: transparent;
+  border: none;
+  height: auto;
+  line-height: inherit;
+  &::after {
+    display: none !important;
+  }
+}
+.navigation-bar-height() {
+  height: 64 * @rpx; // 默认取 iphone 导航栏⾼度
+  &.iphone {
+    height: 64 * @rpx;
+  }
+  &.iphone-x {
+    height: 88 * @rpx;
+  }
+  &.android {
+    height: 68 * @rpx;
+  }
+  &.padm00 {
+    height: 78 * @rpx;
+  }
+}
+.text-ellipsis(@line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+.navigation-bar-remain-height() {
+  height: calc(~"100% - 128rpx");
+  &.iphone {
+    height: calc(~"100% - 128rpx");
+  }
+  &.iphone-x {
+    height: calc(~"100% - 176rpx");
+  }
+  &.android {
+    height: calc(~"100% - 136rpx");
+  }
+  &.padm00 {
+    height: calc(~"100% - 156rpx");
+  }
+}
+.scroll-wrapper() {
+  // override height as your wish
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .pretty-scroll-bar();
+}
+// 重置dialog样式
+.reset-dialog() {
+  &.ant-modal-confirm .ant-modal-body {
+    padding: 24px 32px;
+  }
+  &.dialog .dialog-content .dialog-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  .dialog-container {
+    // 滚动条重写，ui要求的
+    margin-right: -28px;
+    padding-right: 28px;
+    max-height: 551px;
+    overflow: auto;
+    .pretty-scroll-bar;
+    @media (max-width: 1280px) {
+      max-height: 478px;
+    }
+  }
+}
+.square(@size) {
+  .size(@size; @size);
+}

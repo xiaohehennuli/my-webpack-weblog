@@ -27,6 +27,7 @@ module.exports = {
               "@babel/preset-env",
               //这里一定要加runtime:automatic 否则每个tsx文件都要引入react
               //当设置为 automatic 时，将自动导入（import）JSX 转换而来的函数。当设置为 classic 时，不会自动导入（import）任何东西。
+              // 应为jsx编译成react.creament的形式，如果不开启{ runtime: "automatic" }，则必须在每个文件里引入React，如果开启则不需要
               ["@babel/preset-react", { runtime: "automatic" }],
               "@babel/preset-typescript",
             ],

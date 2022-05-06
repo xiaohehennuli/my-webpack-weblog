@@ -1,4 +1,5 @@
 import { Menu } from "antd"
+import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 
 const { SubMenu } = Menu
@@ -20,10 +21,15 @@ interface MenuProps {
 
 const BolgMenu = (props: MenuProps) => {
   const { menuData, click } = props
+
   const navigate = useNavigate()
-  const menuClick = (menuItem: MenuItem) => {
+
+  const menuClick = useCallback((menuItem: MenuItem) => {
     navigate(menuItem.link || "/")
-  }
+  }, [])
+
+  //  递归查找dom
+  const findDom = (menu: MenuItem) => {}
 
   const list = menuData.map((item) => {
     if (item.children.length > 0) {

@@ -10,6 +10,7 @@ import { Button, Carousel } from "antd"
 import ArticleList, { ArticleItem } from "../components/Article/Article"
 import style from "../less/homePage.less"
 import { utils } from "../base/utils"
+import store from "../redux/store"
 
 const HomePage = () => {
   const [articleList, setArticleList] = useState<ArticleItem[]>([])

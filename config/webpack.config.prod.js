@@ -7,6 +7,8 @@
 
 // 用于生产环境压缩css，以便在生产环境中节省加载时间，同时还可以将CSS文件抽离成一个单独的文件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports = {
   //切换weiback内置模式
@@ -89,12 +91,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "styles/[name].[contenthash].css",
     }),
+    new BundleAnalyzerPlugin(),
   ],
   // 在生成坏境使用threeshaking,来优化代码
   // threeshaking 必须采用esm语法编程
   optimization: {
     // 启动标记功能，threeshaking，实际导出的内容会被标记上，未使用的导出内容不会被生成,treeshaking必须开启这个选项
-    usedExports: false,
+    usedExports: true,
     // 告知 webpack 使用 TerserPlugin 或其它在 optimization.minimizer定义的插件压缩 bundle。(treeking的必要条件之一)
     minimize: true,
   },

@@ -7,7 +7,7 @@
 
 import { Menu } from "antd"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import style from "./Navigator.less"
 
 type MenuItem = "mail" | "file" | "note" | "life" | "travel" | "GitHub"
@@ -55,11 +55,11 @@ const MenuList = () => {
   })
 
   return (
-    <div className={style["header-menu-box"]}>
+    <>
       <Menu mode="horizontal" defaultSelectedKeys={[selectMenu]}>
         {list}
       </Menu>
-    </div>
+    </>
   )
 }
 

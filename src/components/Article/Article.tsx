@@ -6,8 +6,7 @@
  */
 
 import { Tag, Spin } from "antd"
-import React, { useRef } from "react"
-import { useEffect } from "react"
+import { useCallback } from "react"
 import style from "./Article.less"
 
 export type ArticleType =
@@ -38,44 +37,44 @@ interface ArticleProps {
 }
 
 const LoadingEmpatyContainer = ({ loading }: { loading: boolean }) => {
-  if (loading) {
-    return (
-      <div className={style["loading-wrap"]}>
-        <Spin></Spin>
-      </div>
-    )
-  } else {
-    return <div className={style["empty-wrap"]}>我也是有底线的～</div>
-  }
+  return loading ? (
+    <div className={style["loading-wrap"]}>
+      <Spin></Spin>
+    </div>
+  ) : (
+    <div className={style["empty-wrap"]}>我也是有底线的～</div>
+  )
 }
 
 const ArticleList = (props: ArticleProps) => {
-  const { articleData, loading } = props
-  const goLink = (link: string) => {}
+  const goLink = useCallback((link: string) => {
+    console.log(link)
+  }, [])
 
-  const list = articleData.map((item, index) => {
-    const labelList = item.label.map((l, index) => {
-      return (
-        <Tag color="magenta" key={index}>
-          {l}
-        </Tag>
-      )
-    })
-    return (
-      <div
-        className={style["article-item"]}
-        onClick={() => goLink(item.link)}
-        key={index}
-      >
-        <div className={style["article-title"]}>{item.title}</div>
-        <div className={style["article-time"]}>{item.time}</div>
-        <div className={style["article-label-content"]}>{labelList}</div>
-      </div>
-    )
-  })
+  const { articleData, loading } = props
   return (
     <div className={style["article-container"]}>
-      {list}
+      {articleData.map((item, index) => {
+        return (
+          <div
+            className={style["article-item"]}
+            onClick={() => goLink(item.link)}
+            key={index}
+          >
+            <div className={style["article-title"]}>{item.title}</div>
+            <div className={style["article-time"]}>{item.time}</div>
+            <div className={style["article-label-content"]}>
+              {item.label.map((l, index) => {
+                return (
+                  <Tag color="magenta" key={index}>
+                    {l}
+                  </Tag>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
       <div className={style["loading-status-wrap"]}>
         <LoadingEmpatyContainer loading={loading}></LoadingEmpatyContainer>
       </div>
