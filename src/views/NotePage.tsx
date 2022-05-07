@@ -4,7 +4,7 @@
  * @Date: 2022-1-29 17:00:00
  * @LastEditTime: 2022-2-12 15:00:00
  */
-import BolgMenu, { MenuItem } from "../components/Menu/Menu"
+import BlogMenu, { MenuItem } from "../components/Menu/Menu"
 import { Outlet } from "react-router-dom"
 import style from "../less/notePage.less"
 
@@ -14,7 +14,7 @@ const NotePage = () => {
   return (
     <div className={style["note-wrap"]}>
       <section className={style["menu-wrap"]}>
-        <BolgMenu menuData={TRAVEL_MENU_ITEM}></BolgMenu>
+        <BlogMenu menuData={TRAVEL_MENU_ITEM}></BlogMenu>
       </section>
       <section className={style["content-wrap"]}>
         <Outlet />

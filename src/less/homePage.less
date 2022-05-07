@@ -1,4 +1,4 @@
-@import (reference) "../less/base/mixin.less";
+@import (reference) '../less/base/mixin.less';
 .home-page {
   overflow: auto;
   height: 100vh;
@@ -12,7 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../assets/bg2.jpeg);
   }
   .container {
     padding: 30px 24px;
@@ -40,7 +39,7 @@
           font-weight: bold;
         }
 
-        .label-and-artile-warp {
+        .label-and-article-warp {
           display: flex;
           width: 100%;
           & > div {
@@ -57,17 +56,40 @@
         .add-button {
           width: 100%;
         }
-        .finde-warp {
+        .find-warp {
         }
       }
       .life-carousel-warp {
         height: 300px;
         margin-top: 20px;
-        position: relative;
         .img-box {
           width: 288px;
-          background: rgb(190, 190, 134);
           height: 300px;
+          position: relative;
+          border-radius: 8px;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+          }
+
+          .title {
+            position: absolute;
+            left: 24px;
+            bottom: 48px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+          }
+
+          .desc {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+          }
         }
       }
     }

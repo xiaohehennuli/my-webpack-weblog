@@ -5,7 +5,7 @@
  * @LastEditTime: 2022-2-12 15:00:00
  */
 
-import BolgMenu, { MenuItem } from "../components/Menu/Menu"
+import BlogMenu, { MenuItem } from "../components/Menu/Menu"
 import style from "../less/lifePage.less"
 import { Outlet } from "react-router-dom"
 
@@ -15,7 +15,7 @@ const LifePage = (props: any) => {
   return (
     <div className={style["life-wrap"]}>
       <section className={style["menu-wrap"]}>
-        <BolgMenu menuData={LIFE_MENU_ITEM}></BolgMenu>
+        <BlogMenu menuData={LIFE_MENU_ITEM}></BlogMenu>
       </section>
       <section className={style["content-wrap"]}>
         <Outlet />

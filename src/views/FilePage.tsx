@@ -8,12 +8,9 @@
 import FileLine from "../components/FileLine/FileLine"
 import style from "../less/filePage.less"
 import People from "../assets/people.svg"
-import store from "../redux/store"
 
-store.subscribe(() => console.log(store.getState()))
 
 const FilePage = () => {
-  store.dispatch({ type: "add", text: "test" })
   return (
     <div className={style["file-page-warp"]}>
       <section className={style["left-warp"]}>
