@@ -9,8 +9,8 @@ import { useEffect, useState, useRef, useMemo, memo } from 'react';
 import { Button, Carousel } from 'antd';
 import ArticleList, { ArticleItem } from '../components/Article/Article';
 import { utils } from '../base/utils';
-import { BG_IMGS,HOME_SWITCH_IMG } from '../base/common';
-import avatar from "../assets/avatar.jpeg"
+import { BG_IMGS, HOME_SWITCH_IMG } from '../base/common';
+import avatar from '../assets/avatar.jpeg';
 import style from '../less/homePage.less';
 
 const HomePage = memo(() => {
@@ -152,13 +152,13 @@ const HomePage = memo(() => {
           </div>
           <div className={style['life-carousel-warp']}>
             <Carousel dotPosition="right" autoplay>
-              {HOME_SWITCH_IMG.map(item =>
+              {HOME_SWITCH_IMG.map((item) => (
                 <div className={style['img-box']}>
                   <img src={item.img} alt="" />
                   <p className={style['title']}>{item.title}</p>
                   <p className={style['desc']}>{item.desc}</p>
                 </div>
-              )}
+              ))}
             </Carousel>
           </div>
         </div>

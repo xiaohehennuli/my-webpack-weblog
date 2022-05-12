@@ -6,26 +6,41 @@
  */
 
 import React from 'react';
-import style from "./FormItem.css"
+import { Input } from 'antd';
+import style from './FormItem.css';
 
-interface FormItemProps {
-
-  label:string,
-  rule:[],
-  required?:boolean
-
+export interface FormItemProps {
+  label: string;
+  name: string;
+  value?:any
+  handleChange?:(name:string,value:any) => void
 }
 
-class FormItem extends React.Component {
-
-  constructor(props:FormItemProps){
-    super(props)
+class FormItem extends React.Component<FormItemProps> {
+  constructor(props: FormItemProps) {
+    super(props);
   }
+
+  onChange = (value:string) => {
+    const {name,handleChange} = this.props
+    if(typeof handleChange === 'function'){
+      handleChange(name,value)
+    }
+  };
 
   render(): React.ReactNode {
-      return <></>
+    const { children, value, label } = this.props;
+    return (
+      <>
+        <span>{label}</span>
+        {React.isValidElement(children) &&
+        typeof children.type === 'function' &&
+        children.type.name === 'Input'
+          ? React.cloneElement(children, { value, onChange: this.onChange })
+          : null}
+      </>
+    );
   }
-
 }
 
-export default FormItem
+export default FormItem;
